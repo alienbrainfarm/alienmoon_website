@@ -1,0 +1,31 @@
+{
+  "events": [
+    {
+      "date": "20 MAR 2026",
+      "time": "19:30",
+      "venue": "Einde Van De Wereld",
+      "address": "Javakade 61",
+      "city": "Amsterdam",
+      "poster": "../assets/20march.jpg"
+    }
+  ],
+  "about": "Crazy Cow is a Neil Young tribute band from Amsterdam, born out of <em>Alien Moon</em> — a group active since 2010. After years of performing classic rock covers spanning the 1960s–80s, the band rebranded at the end of 2024 to focus exclusively on the music of Neil Young.<br><br>Expect raw guitars, heartfelt harmonies, and the timeless spirit of Young's vast catalogue — from <em>Harvest Moon</em> to <em>Rockin' in the Free World</em>. Every show is a journey through one of rock's most restless and enduring catalogues.",
+  "members": [
+    { "name": "John Haley", "role": "Guitars · Harmonica · Vocals" },
+    { "name": "Jim Leitch", "role": "Bass · Vocals" },
+    { "name": "Arnoud van Hall", "role": "Drums · Vocals" },
+    { "name": "Karin van der Wilt", "role": "Guitar · Tambourine · Vocals" }
+  ],
+  "photos": [
+    { "src": "../photos/crazycow1.jpg", "caption": "Live at Einde Van De Wereld" },
+    { "src": "../photos/CrazyCowLogo.JPG", "caption": "Crazy Cow" }
+  ],
+  "socials": [
+    { "label": "FACEBOOK", "url": "https://www.facebook.com/Crazycow/" },
+    { "label": "INSTAGRAM", "url": "https://www.instagram.com/crazycow_band/" }
+  ],
+  "contact": {
+    "email": "kakiwilt@gmail.com",
+    "note": "For bookings and enquiries"
+  }
+}
