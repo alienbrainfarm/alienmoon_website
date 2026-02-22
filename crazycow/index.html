@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alien Moon</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Crazy Cow — Neil Young Tribute Band</title>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a12;
-    --panel: #0f0f1a;
-    --accent1: #00f5c4;
-    --accent2: #7b2fff;
-    --accent3: #ff3c6e;
-    --text: #e8e8f0;
-    --muted: #888899;
+    --bg: #16100a;
+    --panel: #1e160d;
+    --accent1: #c8920a;
+    --accent2: #7a4a1a;
+    --accent3: #8b3010;
+    --text: #f0e6cc;
+    --muted: #8a7a5a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,7 +21,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Space Mono', monospace;
+    font-family: 'Playfair Display', Georgia, serif;
     display: flex;
     min-height: 100vh;
     overflow-x: hidden;
@@ -46,25 +46,25 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    filter: saturate(0.7) brightness(0.6);
+    filter: saturate(0.6) brightness(0.55) sepia(0.4);
   }
 
-  /* Alien moon color overlay */
+  /* Warm sepia overlay */
   .left-panel::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      160deg,
-      rgba(123, 47, 255, 0.55) 0%,
-      rgba(0, 245, 196, 0.15) 50%,
-      rgba(255, 60, 110, 0.3) 100%
+      170deg,
+      rgba(120, 60, 10, 0.7) 0%,
+      rgba(200, 146, 10, 0.2) 55%,
+      rgba(80, 30, 5, 0.65) 100%
     );
     z-index: 1;
     pointer-events: none;
   }
 
-  /* Scanline effect */
+  /* Vintage grain lines */
   .left-panel::after {
     content: '';
     position: absolute;
@@ -72,9 +72,9 @@
     background: repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 3px,
-      rgba(0,0,0,0.08) 3px,
-      rgba(0,0,0,0.08) 4px
+      transparent 2px,
+      rgba(0,0,0,0.06) 2px,
+      rgba(0,0,0,0.06) 3px
     );
     z-index: 2;
     pointer-events: none;
@@ -90,30 +90,28 @@
   }
 
   .band-name {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 82px;
-    line-height: 0.9;
+    font-family: 'Rye', cursive;
+    font-size: 68px;
+    line-height: 0.92;
     letter-spacing: 2px;
     margin-bottom: auto;
+    color: var(--text);
     text-shadow:
-      0 0 30px rgba(0, 245, 196, 0.6),
-      0 0 60px rgba(123, 47, 255, 0.4),
-      3px 3px 0 rgba(255,60,110,0.4);
-    background: linear-gradient(135deg, #fff 0%, var(--accent1) 50%, var(--accent2) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: glow-pulse 3s ease-in-out infinite;
+      0 0 25px rgba(200, 146, 10, 0.55),
+      2px 3px 0 rgba(80, 30, 5, 0.8);
+    animation: warm-pulse 4s ease-in-out infinite;
   }
 
-  @keyframes glow-pulse {
+  @keyframes warm-pulse {
     0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.2); }
+    50% { filter: brightness(1.15); }
   }
 
   .tagline {
-    font-size: 10px;
-    letter-spacing: 4px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent1);
     margin-bottom: 40px;
@@ -128,9 +126,9 @@
   }
 
   nav a {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 28px;
-    letter-spacing: 3px;
+    font-family: 'Rye', cursive;
+    font-size: 22px;
+    letter-spacing: 2px;
     color: var(--text);
     text-decoration: none;
     padding: 6px 12px;
@@ -140,10 +138,10 @@
     display: inline-block;
   }
 
-  nav a:hover {
+  nav a:hover, nav a.active {
     color: var(--accent1);
     border-left-color: var(--accent1);
-    text-shadow: 0 0 15px rgba(0, 245, 196, 0.7);
+    text-shadow: 0 0 12px rgba(200, 146, 10, 0.6);
     transform: translateX(6px);
   }
 
@@ -157,13 +155,14 @@
     position: relative;
   }
 
+  /* Amber top bar */
   .right-panel::before {
     content: '';
     position: fixed;
     top: 0; right: 0;
     width: calc(100% - 380px);
     height: 3px;
-    background: linear-gradient(90deg, var(--accent2), var(--accent1), var(--accent3));
+    background: linear-gradient(90deg, var(--accent3), var(--accent1), var(--accent2));
     z-index: 10;
   }
 
@@ -178,10 +177,10 @@
   .social-bar a {
     color: var(--muted);
     text-decoration: none;
+    font-family: 'Playfair Display', serif;
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: color 0.2s;
     padding: 6px 10px;
     border: 1px solid transparent;
     transition: all 0.2s;
@@ -189,37 +188,16 @@
 
   .social-bar a:hover {
     color: var(--accent1);
-    border-color: rgba(0, 245, 196, 0.3);
-  }
-
-  /* YouTube embed */
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    margin-bottom: 52px;
-    border: 1px solid rgba(123, 47, 255, 0.3);
-    box-shadow:
-      0 0 40px rgba(123, 47, 255, 0.2),
-      inset 0 0 20px rgba(0,0,0,0.5);
-  }
-
-  .video-container iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    border-color: rgba(200, 146, 10, 0.35);
   }
 
   /* Section headers */
   .section-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 52px;
-    letter-spacing: 4px;
-    background: linear-gradient(90deg, var(--accent1), var(--accent2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Rye', cursive;
+    font-size: 48px;
+    letter-spacing: 3px;
+    color: var(--accent1);
+    text-shadow: 1px 2px 0 rgba(80, 30, 5, 0.6);
     margin-bottom: 24px;
     position: relative;
   }
@@ -233,7 +211,7 @@
     margin-top: 8px;
   }
 
-  /* Tour dates */
+  /* Tour table */
   .tour-table {
     width: 100%;
     border-collapse: collapse;
@@ -247,8 +225,9 @@
     letter-spacing: 3px;
     font-size: 10px;
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
     padding: 0 16px 16px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(200, 146, 10, 0.15);
   }
 
   .tour-table td {
@@ -258,7 +237,7 @@
   }
 
   .tour-table tr:hover td {
-    background: rgba(0, 245, 196, 0.03);
+    background: rgba(200, 146, 10, 0.04);
   }
 
   .date-cell {
@@ -275,80 +254,14 @@
     display: block;
     max-width: 420px;
     width: 100%;
-    border: 1px solid rgba(123, 47, 255, 0.3);
-    box-shadow: 0 0 40px rgba(123, 47, 255, 0.15);
+    border: 1px solid rgba(200, 146, 10, 0.3);
+    box-shadow: 0 0 40px rgba(200, 146, 10, 0.1);
     margin-bottom: 52px;
   }
 
-  /* Mailing list */
-  .mail-section {
-    background: rgba(123, 47, 255, 0.08);
-    border: 1px solid rgba(123, 47, 255, 0.2);
-    padding: 36px;
-    max-width: 480px;
-    margin-bottom: 52px;
-  }
-
-  .mail-section h3 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 28px;
-    letter-spacing: 3px;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .mail-section p {
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  .mail-form {
-    display: flex;
-    gap: 0;
-  }
-
-  .mail-form input {
-    flex: 1;
-    background: rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-right: none;
-    color: var(--text);
-    padding: 12px 16px;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .mail-form input:focus {
-    border-color: var(--accent2);
-  }
-
-  .mail-form input::placeholder { color: var(--muted); }
-
-  .mail-form button {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 18px;
-    letter-spacing: 2px;
-    padding: 12px 24px;
-    background: var(--accent2);
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .mail-form button:hover {
-    background: var(--accent1);
-    color: var(--bg);
-    box-shadow: 0 0 20px rgba(0, 245, 196, 0.5);
-  }
-
-  /* About section */
+  /* About */
   .about-text {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.9;
     color: var(--muted);
     max-width: 600px;
@@ -357,7 +270,59 @@
 
   .about-text em {
     color: var(--accent1);
-    font-style: normal;
+    font-style: italic;
+  }
+
+  /* Members */
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 52px;
+  }
+
+  .member-card {
+    border: 1px solid rgba(200, 146, 10, 0.2);
+    padding: 20px;
+    background: rgba(200, 146, 10, 0.04);
+    transition: border-color 0.2s;
+  }
+
+  .member-card:hover {
+    border-color: rgba(200, 146, 10, 0.45);
+  }
+
+  .member-name {
+    font-family: 'Rye', cursive;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .member-role {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+
+  /* Contact */
+  .contact-block {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 52px;
+  }
+
+  .contact-block a {
+    color: var(--accent1);
+    text-decoration: none;
+  }
+
+  .contact-block a:hover {
+    text-decoration: underline;
   }
 
   /* Footer */
@@ -370,16 +335,16 @@
     text-transform: uppercase;
   }
 
-  /* Moon decoration */
-  .moon-deco {
+  /* Deco rope ring */
+  .rope-deco {
     position: fixed;
-    top: -80px;
-    right: -80px;
-    width: 300px;
-    height: 300px;
+    top: -100px;
+    right: -100px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(123, 47, 255, 0.15), transparent 70%);
-    border: 1px solid rgba(123, 47, 255, 0.1);
+    border: 1px solid rgba(200, 146, 10, 0.08);
+    box-shadow: 0 0 60px rgba(200, 146, 10, 0.06) inset;
     pointer-events: none;
     z-index: 0;
   }
@@ -389,7 +354,7 @@
     .left-panel { width: 100%; min-width: 0; height: 60vh; position: relative; }
     .right-panel::before { width: 100%; }
     .right-panel { padding: 32px 24px; }
-    .band-name { font-size: 64px; }
+    .band-name { font-size: 54px; }
   }
 </style>
 </head>
@@ -397,36 +362,25 @@
 
 <!-- LEFT PANEL -->
 <div class="left-panel">
-  <img src="assets/alienmoon2.jpg" alt="Alien Moon band" class="band-photo">
+  <img src="../photos/crazycow1.jpg" alt="Crazy Cow band" class="band-photo">
   <div class="left-content">
-    <div class="band-name">ALIEN<br>MOON</div>
-    <div class="tagline">Psychedelic Rock · Dance · Netherlands</div>
+    <div class="band-name">CRAZY<br>COW</div>
+    <div class="tagline">Neil Young Tribute Band</div>
     <nav>
       <a href="#" data-scroll="top">HOME</a>
       <a href="#events-section" data-scroll="events-section">EVENTS</a>
       <a href="gallery.html">GALLERY</a>
       <a href="#contact" data-scroll="contact">CONTACT</a>
-      <a href="crazycow/index.html">CRAZY COW</a>
+      <a href="../index.html">ALIEN MOON</a>
     </nav>
   </div>
 </div>
 
 <!-- RIGHT PANEL -->
 <div class="right-panel">
-  <div class="moon-deco"></div>
+  <div class="rope-deco"></div>
 
   <div class="social-bar" id="social-bar"></div>
-
-  <!-- Video -->
-  <div class="video-container" id="video-container">
-    <iframe
-      id="video-iframe"
-      title="Alien Moon Live"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
 
   <!-- Events -->
   <div class="section-title" id="events-section">EVENTS</div>
@@ -446,19 +400,16 @@
   <div class="section-title">ABOUT</div>
   <div class="about-text" id="about-text"></div>
 
-
+  <!-- Members -->
+  <div class="section-title">THE BAND</div>
+  <div class="members-grid" id="members-grid"></div>
 
   <!-- Contact -->
   <div class="section-title" id="contact">CONTACT</div>
-  <div class="about-text" style="margin-bottom:52px">
-    For bookings and enquiries, reach out via
-    <a href="https://www.facebook.com/Crazycow/" style="color:var(--accent1);text-decoration:none">Facebook</a>
-    or
-    <a href="https://www.instagram.com/crazycow_band/" style="color:var(--accent1);text-decoration:none">Instagram</a>.
-  </div>
+  <div class="contact-block" id="contact-block"></div>
 
   <footer>
-    &copy; 2026 Alien Moon &mdash; All Rights Reserved
+    &copy; 2026 Crazy Cow &mdash; All Rights Reserved
   </footer>
 </div>
 
@@ -483,10 +434,6 @@
     .then(render);
 
   function render(data) {
-    // video
-    document.getElementById('video-iframe').src =
-      `https://www.youtube.com/embed/${data.video}`;
-
     // socials
     const bar = document.getElementById('social-bar');
     bar.innerHTML = data.socials
@@ -499,15 +446,15 @@
       <tr>
         <td class="date-cell">${e.date} &middot; ${e.time}</td>
         <td class="venue-cell">${e.venue}<br>
-          <span style="font-size:11px;color:var(--muted);font-weight:normal">
-            ${e.address} &mdash; ${e.note}
+          <span style="font-size:11px;color:var(--muted);font-style:italic">
+            ${e.address}
           </span>
         </td>
         <td class="city-cell">${e.city}</td>
       </tr>
     `).join('');
 
-    // poster (first event with a poster)
+    // poster
     const posterEvent = data.events.find(e => e.poster);
     if (posterEvent) {
       const img = document.getElementById('event-poster');
@@ -517,6 +464,24 @@
 
     // about
     document.getElementById('about-text').innerHTML = data.about;
+
+    // members
+    const grid = document.getElementById('members-grid');
+    grid.innerHTML = data.members.map(m => `
+      <div class="member-card">
+        <div class="member-name">${m.name}</div>
+        <div class="member-role">${m.role}</div>
+      </div>
+    `).join('');
+
+    // contact
+    const contact = document.getElementById('contact-block');
+    contact.innerHTML = `
+      ${data.contact.note}:<br><br>
+      <a href="mailto:${data.contact.email}">${data.contact.email}</a><br><br>
+      Or reach us via
+      ${data.socials.map(s => `<a href="${s.url}">${s.label}</a>`).join(' or ')}.
+    `;
   }
 </script>
 
