@@ -415,17 +415,12 @@
 <div class="right-panel">
   <div class="moon-deco"></div>
 
-  <div class="social-bar">
-    <a href="#">SPOTIFY</a>
-    <a href="#">YOUTUBE</a>
-    <a href="#">INSTAGRAM</a>
-    <a href="#">FACEBOOK</a>
-  </div>
+  <div class="social-bar" id="social-bar"></div>
 
   <!-- Video -->
-  <div class="video-container">
+  <div class="video-container" id="video-container">
     <iframe
-      src="https://www.youtube.com/embed/DvdSWZF-vO8"
+      id="video-iframe"
       title="Alien Moon Live"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -443,31 +438,13 @@
         <th>CITY</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td class="date-cell">20 MAR 2026 &middot; 19:30</td>
-        <td class="venue-cell">Einde Van De Wereld<br><span style="font-size:11px;color:var(--muted);font-weight:normal">Javakade 61 &mdash; as Crazy Cow (Neil Young Tribute)</span></td>
-        <td class="city-cell">Amsterdam</td>
-      </tr>
-    </tbody>
+    <tbody id="events-tbody"></tbody>
   </table>
-  <img src="assets/20march.jpg" alt="20 March 2026 Event Poster" class="event-poster">
+  <img id="event-poster" alt="Event Poster" class="event-poster" style="display:none">
 
   <!-- About -->
   <div class="section-title">ABOUT</div>
-  <div class="about-text">
-    <em>Alien Moon</em> is a psychedelic rock band from the Netherlands built for one purpose:
-    getting people on the dance floor and keeping them there. Swirling guitars, hypnotic grooves,
-    and cosmic energy collide in a live experience that blurs the line between a rock concert
-    and a full-on dance party.
-    <br><br>
-    Drawing from the rich tradition of late-60s and 70s psychedelia — think fuzz-soaked riffs,
-    expansive jams, and pulsing rhythm sections — Alien Moon crafts a sound that's <em>ancient and
-    futuristic</em> at the same time. Every set is a trip. Come prepared to move.
-    <br><br>
-    (Side note: catch the band's alter ego <em>Crazy Cow</em> for their Neil Young tribute shows —
-    a completely different beast, equally worth your evening.)
-  </div>
+  <div class="about-text" id="about-text"></div>
 
 
 
@@ -475,6 +452,49 @@
     &copy; 2026 Alien Moon &mdash; All Rights Reserved
   </footer>
 </div>
+
+<script>
+  fetch('data.json')
+    .then(r => r.json())
+    .then(render);
+
+  function render(data) {
+    // video
+    document.getElementById('video-iframe').src =
+      `https://www.youtube.com/embed/${data.video}`;
+
+    // socials
+    const bar = document.getElementById('social-bar');
+    bar.innerHTML = data.socials
+      .map(s => `<a href="${s.url}">${s.label}</a>`)
+      .join('');
+
+    // events
+    const tbody = document.getElementById('events-tbody');
+    tbody.innerHTML = data.events.map(e => `
+      <tr>
+        <td class="date-cell">${e.date} &middot; ${e.time}</td>
+        <td class="venue-cell">${e.venue}<br>
+          <span style="font-size:11px;color:var(--muted);font-weight:normal">
+            ${e.address} &mdash; ${e.note}
+          </span>
+        </td>
+        <td class="city-cell">${e.city}</td>
+      </tr>
+    `).join('');
+
+    // poster (first event with a poster)
+    const posterEvent = data.events.find(e => e.poster);
+    if (posterEvent) {
+      const img = document.getElementById('event-poster');
+      img.src = posterEvent.poster;
+      img.style.display = 'block';
+    }
+
+    // about
+    document.getElementById('about-text').innerHTML = data.about;
+  }
+</script>
 
 </body>
 </html>
