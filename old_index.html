@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Moon | Sixties Sausje</title>
+    <style>
+        /* Importing a curvy 70s header font and a clean body font */
+        @import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=DM+Sans:wght@400;500;700&display=swap');
+
+        /* The Analog Attic Color Palette */
+        :root {
+            --parchment: #F9F4E8;
+            --burnt-sienna: #8C3B1A;
+            --charcoal: #2E2E2E;
+            --olive: #556B2F;
+            /* Crazy Cow — Rustic Alter-Ego Palette */
+            --denim: #4A6FA5;
+            --barn-red: #7D2B1E;
+            --night-soil: #1C1C18;
+            --hay: #D4B896;
+        }
+
+        body {
+            background-color: var(--parchment);
+            color: var(--charcoal);
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Shrikhand', cursive;
+            color: var(--burnt-sienna);
+            font-weight: normal;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 01. The Entrance */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 2px dashed var(--olive);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--olive);
+            margin-top: 10px;
+        }
+
+        /* 02. The Soul */
+        .the-soul {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 03. The Shelf (Archive) */
+        .archive {
+            display: flex;
+            gap: 40px;
+            padding: 60px 0;
+            border-top: 2px dashed var(--olive);
+        }
+
+        .side {
+            flex: 1;
+            background: #fdfaf4;
+            padding: 30px;
+            border: 4px solid var(--olive);
+            border-radius: 15px;
+            /* Creates a retro 3D "sticker" shadow effect */
+            box-shadow: 6px 6px 0px var(--burnt-sienna); 
+        }
+
+        .side h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--burnt-sienna);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--burnt-sienna);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom: 2px solid var(--olive);
+        }
+
+        /* 04. The Bar (Footer) */
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--burnt-sienna);
+            color: var(--parchment);
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            color: var(--parchment);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--olive);
+            color: var(--parchment);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Shrikhand', cursive;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 3px 3px 0px #1a220e;
+        }
+
+        .btn:hover {
+            background-color: var(--parchment);
+            color: var(--olive);
+            border-bottom: none;
+        }
+
+        /* 00. Navigation Bar */
+        nav {
+            background-color: var(--charcoal);
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--parchment);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 16px 0;
+            display: block;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--hay);
+            border-bottom: 2px solid var(--denim);
+        }
+
+        /* 05. Crazy Cow Section */
+        #crazy-cow {
+            background-color: var(--night-soil);
+            color: var(--hay);
+            padding: 80px 0;
+            margin-top: 0;
+        }
+
+        #crazy-cow .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #crazy-cow h2 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 3.2rem;
+            color: var(--hay);
+            text-align: center;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px var(--barn-red);
+        }
+
+        #crazy-cow .alter-ego-tag {
+            text-align: center;
+            font-style: italic;
+            color: var(--denim);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .crazy-cow-layout {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .crazy-cow-bio {
+            flex: 1;
+        }
+
+        .crazy-cow-bio h3 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.6rem;
+            color: var(--denim);
+            border-bottom: 2px solid var(--barn-red);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .crazy-cow-bio p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--hay);
+        }
+
+        .crazy-cow-media {
+            flex: 1;
+        }
+
+        .crazy-cow-media h3 {
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.6rem;
+            color: var(--denim);
+            border-bottom: 2px solid var(--barn-red);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        /* Facebook CTA button */
+        .btn-facebook {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--barn-red);
+            color: var(--hay);
+            padding: 14px 26px;
+            font-size: 1rem;
+            font-family: 'Shrikhand', cursive;
+            border-radius: 4px;
+            margin-top: 22px;
+            box-shadow: 4px 4px 0px var(--denim);
+            text-decoration: none;
+            border-bottom: none;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-facebook:hover {
+            background-color: var(--denim);
+            box-shadow: 4px 4px 0px var(--barn-red);
+            color: var(--parchment);
+            border-bottom: none;
+        }
+
+        .btn-facebook svg {
+            flex-shrink: 0;
+        }
+
+        /* Media embed placeholders */
+        .media-embeds {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .embed-placeholder {
+            background-color: #2a2a26;
+            border: 3px solid var(--barn-red);
+            border-radius: 8px;
+            box-shadow: 5px 5px 0px var(--denim);
+            overflow: hidden;
+        }
+
+        .embed-placeholder .embed-label {
+            background-color: var(--barn-red);
+            color: var(--hay);
+            font-family: 'Shrikhand', cursive;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            padding: 6px 14px;
+            text-transform: uppercase;
+        }
+
+        .embed-placeholder .embed-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 28px 20px;
+            font-size: 0.95rem;
+            color: #8a8a7a;
+            font-style: italic;
+        }
+
+        .embed-placeholder .embed-inner svg {
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+
+        /* Responsive design for mobile phones */
+        @media (max-width: 768px) {
+            .archive {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 3rem;
+            }
+            .crazy-cow-layout {
+                flex-direction: column;
+            }
+            #crazy-cow h2 {
+                font-size: 2.4rem;
+            }
+            nav ul {
+                gap: 16px;
+            }
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#top">Alien Moon</a></li>
+            <li><a href="#the-soul">The Soul</a></li>
+            <li><a href="#archive">The Shelf</a></li>
+            <li><a href="#crazy-cow">Crazy Cow</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="top">
+        <h1>Alien Moon</h1>
+        <p>Sixties sausje, seventies soul.</p>
+    </header>
+
+    <div class="container">
+        <section id="the-soul" class="the-soul">
+            <h2>The Heart of the Moon</h2>
+            <p>We don’t play these songs because we have to; we play them because we can’t imagine not hearing them.</p>
+            <p>Based in Amsterdam, Alien Moon is a project born out of a simple love for the 'roerige jaren'—that specific, electric energy of the 1960s and 70s. For us, it’s about the crackle of a tube amp, the way a harmony sits just right, and the stories found in those old grooves.</p>
+            <p>Take a look around, listen to a few tracks, and if you’re feeling the groove, come say hi at the next gig.</p>
+        </section>
+
+        <section id="archive" class="archive">
+            <div class="side">
+                <h3>Side A: The Archive</h3>
+                <p><em>Originals with a vintage twist. (SoundCloud)</em></p>
+                <ul>
+                    <li><a href="#">▶ Moonlight Groove</a></li>
+                    <li><a href="#">▶ Amsterdam Sun</a></li>
+                    <li><a href="#">▶ The Sixties Sausje</a></li>
+                </ul>
+            </div>
+            
+            <div class="side">
+                <h3>Side B: The Stage</h3>
+                <p><em>Live moments from Amsterdam. (YouTube)</em></p>
+                <ul>
+                    <li><a href="#">▶ Live at Fando Now</a></li>
+                    <li><a href="#">▶ The Beatles Cover Medley</a></li>
+                    <li><a href="#">▶ Hendrix Vibes (Acoustic)</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- 05. The Alter-Ego: Crazy Cow -->
+    <section id="crazy-cow">
+        <div class="container">
+            <h2>Crazy Cow</h2>
+            <p class="alter-ego-tag">The alter-ego of Alien Moon — riding on the Harvest Moon</p>
+
+            <div class="crazy-cow-layout">
+                <!-- Bio Column -->
+                <div class="crazy-cow-bio">
+                    <h3>Who is Crazy Cow?</h3>
+                    <p>
+                        Crazy Cow is the alter-ego of Alien Moon, born out of a deep and restless love for the
+                        catalog of Neil Young. Where Alien Moon roams the wider galaxy of the '60s and '70s,
+                        Crazy Cow grazes on one singular field: the vast, beautiful, contradictory world of
+                        Neil Young.
+                    </p>
+                    <p>
+                        From the gentle acoustic murmur of <em>Harvest</em> and <em>After the Gold Rush</em>
+                        to the feedback-soaked, distortion-heavy jams of Crazy Horse — Crazy Cow honours it
+                        all. Think candlelit cafés in Amsterdam, flannel shirts, a slightly out-of-tune
+                        harmonica, and that unmistakable ache in the vocals.
+                    </p>
+                    <p>
+                        It's the same band, the same stage, the same Amsterdam soul — just wearing a
+                        different hat. A well-worn, slightly muddy, very Neil Young kind of hat.
+                    </p>
+                    <a href="https://www.facebook.com/Crazycow" target="_blank" rel="noopener noreferrer" class="btn-facebook">
+                        <!-- Facebook "f" icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M22 12a10 10 0 1 0-11.563 9.876V15.14h-2.54v-3.14h2.54V9.845c0-2.507 1.493-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 3.14H13.56v6.736A10.003 10.003 0 0 0 22 12z"/>
+                        </svg>
+                        Crazy Cow on Facebook
+                    </a>
+                </div>
+
+                <!-- Media / Socials Column -->
+                <div class="crazy-cow-media">
+                    <h3>Listen &amp; Watch</h3>
+                    <div class="media-embeds">
+                        <!-- YouTube placeholder -->
+                        <div class="embed-placeholder">
+                            <div class="embed-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778C2.008 8.774 2 12 2 12s.008 3.226.403 4.797a2.506 2.506 0 0 0 1.762 1.767C5.735 18.993 12 19 12 19s6.264.007 7.831-.396a2.51 2.51 0 0 0 1.767-1.763C22 15.226 22 12 22 12s-.007-3.226-.407-4.797zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"/></svg>
+                                YouTube — Crazy Cow Live
+                            </div>
+                            <div class="embed-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778C2.008 8.774 2 12 2 12s.008 3.226.403 4.797a2.506 2.506 0 0 0 1.762 1.767C5.735 18.993 12 19 12 19s6.264.007 7.831-.396a2.51 2.51 0 0 0 1.767-1.763C22 15.226 22 12 22 12s-.007-3.226-.407-4.797zM9.996 15.005l.005-6 5.207 3.005-5.212 2.995z"/></svg>
+                                <span>Video coming soon — stay tuned</span>
+                            </div>
+                        </div>
+
+                        <!-- SoundCloud placeholder -->
+                        <div class="embed-placeholder">
+                            <div class="embed-label">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px;" aria-hidden="true"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1zm1.99-.376c-.064 0-.12.057-.128.124l-.2 2.53.2 2.428c.008.07.064.12.128.12s.12-.05.13-.12l.228-2.428-.228-2.53c-.01-.067-.066-.124-.13-.124zm1.984-.386c-.077 0-.144.066-.15.146l-.18 2.916.18 2.82c.006.08.073.147.15.147s.143-.067.15-.147l.205-2.82-.205-2.916c-.007-.08-.073-.146-.15-.146zm1.994-.232c-.09 0-.166.075-.17.168l-.163 3.148.163 2.83c.004.092.08.168.17.168s.166-.076.17-.167l.182-2.83-.183-3.15c-.003-.092-.08-.167-.17-.167zm1.985.09c-.103 0-.19.087-.192.194l-.145 3.058.145 2.847c.003.107.09.194.192.194s.19-.087.192-.194l.163-2.847-.163-3.058c-.002-.107-.09-.194-.192-.194zm1.993-.214c-.116 0-.213.097-.213.214l-.13 3.272.13 2.867c0 .117.097.214.213.214s.213-.097.213-.214l.146-2.867-.146-3.272c0-.117-.097-.214-.213-.214zm2-.338c-.128 0-.233.105-.233.233l-.112 3.61.112 2.883c0 .128.105.233.233.233s.233-.105.233-.233l.126-2.883-.126-3.61c0-.128-.105-.233-.233-.233zm2.01.318c-.14 0-.253.114-.254.254l-.097 3.293.097 2.883c.001.14.114.253.254.253s.253-.113.254-.253l.108-2.883-.108-3.293c-.001-.14-.114-.254-.254-.254zm2-.717c-.153 0-.277.124-.277.277l-.083 4.01.083 2.878c0 .153.124.277.277.277s.277-.124.277-.277l.093-2.878-.093-4.01c0-.153-.124-.277-.277-.277zm2.01.45c-.165 0-.3.135-.3.3l-.07 3.56.07 2.874c0 .165.135.3.3.3s.3-.135.3-.3l.078-2.874-.078-3.56c0-.165-.135-.3-.3-.3zm4.014-.83c-.02-.007-.04-.01-.063-.01-.065 0-.128.01-.188.03C20.924 9.44 20 8.124 20 6.57c0-1.853-1.5-3.356-3.352-3.356-.388 0-.76.067-1.106.19-.38.133-.458.18-.46.376v7.74c.002.2.162.36.362.36h6.165c.498 0 .9-.405.9-.904 0-.495-.4-.9-.896-.9z"/></svg>
+                                SoundCloud — Neil Young Covers
+                            </div>
+                            <div class="embed-inner">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1zm1.99-.376c-.064 0-.12.057-.128.124l-.2 2.53.2 2.428c.008.07.064.12.128.12s.12-.05.13-.12l.228-2.428-.228-2.53c-.01-.067-.066-.124-.13-.124zm1.984-.386c-.077 0-.144.066-.15.146l-.18 2.916.18 2.82c.006.08.073.147.15.147s.143-.067.15-.147l.205-2.82-.205-2.916c-.007-.08-.073-.146-.15-.146zm1.994-.232c-.09 0-.166.075-.17.168l-.163 3.148.163 2.83c.004.092.08.168.17.168s.166-.076.17-.167l.182-2.83-.183-3.15c-.003-.092-.08-.167-.17-.167zm1.985.09c-.103 0-.19.087-.192.194l-.145 3.058.145 2.847c.003.107.09.194.192.194s.19-.087.192-.194l.163-2.847-.163-3.058c-.002-.107-.09-.194-.192-.194zm1.993-.214c-.116 0-.213.097-.213.214l-.13 3.272.13 2.867c0 .117.097.214.213.214s.213-.097.213-.214l.146-2.867-.146-3.272c0-.117-.097-.214-.213-.214zm2-.338c-.128 0-.233.105-.233.233l-.112 3.61.112 2.883c0 .128.105.233.233.233s.233-.105.233-.233l.126-2.883-.126-3.61c0-.128-.105-.233-.233-.233zm2.01.318c-.14 0-.253.114-.254.254l-.097 3.293.097 2.883c.001.14.114.253.254.253s.253-.113.254-.253l.108-2.883-.108-3.293c-.001-.14-.114-.254-.254-.254zm2-.717c-.153 0-.277.124-.277.277l-.083 4.01.083 2.878c0 .153.124.277.277.277s.277-.124.277-.277l.093-2.878-.093-4.01c0-.153-.124-.277-.277-.277zm2.01.45c-.165 0-.3.135-.3.3l-.07 3.56.07 2.874c0 .165.135.3.3.3s.3-.135.3-.3l.078-2.874-.078-3.56c0-.165-.135-.3-.3-.3zm4.014-.83c-.02-.007-.04-.01-.063-.01-.065 0-.128.01-.188.03C20.924 9.44 20 8.124 20 6.57c0-1.853-1.5-3.356-3.352-3.356-.388 0-.76.067-1.106.19-.38.133-.458.18-.46.376v7.74c.002.2.162.36.362.36h6.165c.498 0 .9-.405.9-.904 0-.495-.4-.9-.896-.9z"/></svg>
+                                <span>Tracks coming soon — keep listening</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Bring the Moon to Your Room</h2>
+        <p>Want to hear some 60s soul at your place? We’ll bring the moon, you provide the atmosphere.</p>
+        <a href="mailto:hello@alienmoon.nl" class="btn">Drop Us a Line</a>
+        <p style="margin-top: 60px; font-size: 0.9rem; opacity: 0.8;">Currently spinning: Fleetwood Mac - Rumours</p>
+    </footer>
+
+</body>
+</html>
