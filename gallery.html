@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alien Moon — Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a12;
+    --panel: #0f0f1a;
+    --accent1: #00f5c4;
+    --accent2: #7b2fff;
+    --accent3: #ff3c6e;
+    --text: #e8e8f0;
+    --muted: #888899;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* LEFT PANEL */
+  .left-panel {
+    width: 380px;
+    min-width: 380px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .band-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: saturate(0.7) brightness(0.6);
+  }
+
+  .left-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(123, 47, 255, 0.55) 0%,
+      rgba(0, 245, 196, 0.15) 50%,
+      rgba(255, 60, 110, 0.3) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .left-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.08) 3px,
+      rgba(0,0,0,0.08) 4px
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .left-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 32px 28px;
+  }
+
+  .band-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 82px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: auto;
+    text-shadow:
+      0 0 30px rgba(0, 245, 196, 0.6),
+      0 0 60px rgba(123, 47, 255, 0.4),
+      3px 3px 0 rgba(255,60,110,0.4);
+    background: linear-gradient(135deg, #fff 0%, var(--accent1) 50%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+  }
+
+  .tagline {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent1);
+    margin-bottom: 40px;
+    opacity: 0.9;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 40px;
+  }
+
+  nav a {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--text);
+    text-decoration: none;
+    padding: 6px 12px;
+    margin-left: -12px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    display: inline-block;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--accent1);
+    border-left-color: var(--accent1);
+    text-shadow: 0 0 15px rgba(0, 245, 196, 0.7);
+    transform: translateX(6px);
+  }
+
+  /* RIGHT PANEL */
+  .right-panel {
+    flex: 1;
+    background: var(--panel);
+    padding: 48px 52px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: relative;
+  }
+
+  .right-panel::before {
+    content: '';
+    position: fixed;
+    top: 0; right: 0;
+    width: calc(100% - 380px);
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent1), var(--accent3));
+    z-index: 10;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 52px;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent1), transparent);
+    margin-top: 8px;
+  }
+
+  /* Photo grid */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 52px;
+  }
+
+  .photo-grid img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: 1px solid rgba(123, 47, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+  }
+
+  .photo-grid img:hover {
+    border-color: var(--accent1);
+    box-shadow: 0 0 20px rgba(0, 245, 196, 0.2);
+    transform: scale(1.02);
+  }
+
+  .empty-state {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 52px;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(123, 47, 255, 0.4);
+    box-shadow: 0 0 60px rgba(123, 47, 255, 0.3);
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+    color: var(--muted);
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+  }
+
+  .lightbox-close:hover { color: var(--accent1); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .moon-deco {
+    position: fixed;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(123, 47, 255, 0.15), transparent 70%);
+    border: 1px solid rgba(123, 47, 255, 0.1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    body { flex-direction: column; }
+    .left-panel { width: 100%; min-width: 0; height: 60vh; position: relative; }
+    .right-panel::before { width: 100%; }
+    .right-panel { padding: 32px 24px; }
+    .band-name { font-size: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LEFT PANEL -->
+<div class="left-panel">
+  <img src="assets/alienmoon2.jpg" alt="Alien Moon band" class="band-photo">
+  <div class="left-content">
+    <div class="band-name">ALIEN<br>MOON</div>
+    <div class="tagline">Psychedelic Rock · Dance · Netherlands</div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="index.html#events-section">EVENTS</a>
+      <a href="gallery.html" class="active">GALLERY</a>
+      <a href="index.html#contact">CONTACT</a>
+    </nav>
+  </div>
+</div>
+
+<!-- RIGHT PANEL -->
+<div class="right-panel">
+  <div class="moon-deco"></div>
+
+  <div class="section-title">GALLERY</div>
+  <div class="photo-grid" id="photo-grid"></div>
+
+  <footer>
+    &copy; 2026 Alien Moon &mdash; All Rights Reserved
+  </footer>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close">CLOSE</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  fetch('data.json')
+    .then(r => r.json())
+    .then(data => {
+      const grid = document.getElementById('photo-grid');
+      if (!data.photos || data.photos.length === 0) {
+        grid.outerHTML = '<p class="empty-state">Photos coming soon.</p>';
+        return;
+      }
+      grid.innerHTML = data.photos.map(p => `
+        <img src="${p.src}" alt="${p.caption || ''}" loading="lazy">
+      `).join('');
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      grid.querySelectorAll('img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('open');
+        });
+      });
+      document.getElementById('lightbox-close').addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
+      lightbox.addEventListener('click', e => {
+        if (e.target === lightbox) lightbox.classList.remove('open');
+      });
+    });
+</script>
+
+</body>
+</html>
