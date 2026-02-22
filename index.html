@@ -153,6 +153,7 @@
     background: var(--panel);
     padding: 48px 52px;
     overflow-y: auto;
+    scroll-behavior: smooth;
     position: relative;
   }
 
@@ -401,12 +402,10 @@
     <div class="band-name">ALIEN<br>MOON</div>
     <div class="tagline">Psychedelic Rock · Dance · Netherlands</div>
     <nav>
-      <a href="#">HOME</a>
-      <a href="#">MUSIC</a>
-      <a href="#">VIDEOS</a>
-      <a href="#">SHOWS</a>
-      <a href="#">EPK</a>
-      <a href="#">CONTACT</a>
+      <a href="#" data-scroll="top">HOME</a>
+      <a href="#events-section" data-scroll="events-section">EVENTS</a>
+      <a href="gallery.html">GALLERY</a>
+      <a href="#contact" data-scroll="contact">CONTACT</a>
     </nav>
   </div>
 </div>
@@ -429,7 +428,7 @@
   </div>
 
   <!-- Events -->
-  <div class="section-title">EVENTS</div>
+  <div class="section-title" id="events-section">EVENTS</div>
   <table class="tour-table">
     <thead>
       <tr>
@@ -448,12 +447,36 @@
 
 
 
+  <!-- Contact -->
+  <div class="section-title" id="contact">CONTACT</div>
+  <div class="about-text" style="margin-bottom:52px">
+    For bookings and enquiries, reach out via
+    <a href="https://www.facebook.com/Crazycow/" style="color:var(--accent1);text-decoration:none">Facebook</a>
+    or
+    <a href="https://www.instagram.com/crazycow_band/" style="color:var(--accent1);text-decoration:none">Instagram</a>.
+  </div>
+
   <footer>
     &copy; 2026 Alien Moon &mdash; All Rights Reserved
   </footer>
 </div>
 
 <script>
+  // Nav scroll — right-panel is the scroll container, not the window
+  const panel = document.querySelector('.right-panel');
+  document.querySelectorAll('nav a[data-scroll]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = a.dataset.scroll;
+      if (target === 'top') {
+        panel.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
   fetch('data.json')
     .then(r => r.json())
     .then(render);
