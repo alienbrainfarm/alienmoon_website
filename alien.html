@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Moon | Sixties Sausje</title>
+    <style>
+        /* Importing a curvy 70s header font and a clean body font */
+        @import url('https://fonts.googleapis.com/css2?family=Shrikhand&family=DM+Sans:wght@400;500&display=swap');
+
+        /* The Analog Attic Color Palette */
+        :root {
+            --parchment: #F9F4E8;
+            --burnt-sienna: #8C3B1A;
+            --charcoal: #2E2E2E;
+            --olive: #556B2F;
+        }
+
+        body {
+            background-color: var(--parchment);
+            color: var(--charcoal);
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Shrikhand', cursive;
+            color: var(--burnt-sienna);
+            font-weight: normal;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 01. The Entrance */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 2px dashed var(--olive);
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--olive);
+            margin-top: 10px;
+        }
+
+        /* 02. The Soul */
+        .the-soul {
+            text-align: center;
+            padding: 60px 0;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 03. The Shelf (Archive) */
+        .archive {
+            display: flex;
+            gap: 40px;
+            padding: 60px 0;
+            border-top: 2px dashed var(--olive);
+        }
+
+        .side {
+            flex: 1;
+            background: #fdfaf4;
+            padding: 30px;
+            border: 4px solid var(--olive);
+            border-radius: 15px;
+            /* Creates a retro 3D "sticker" shadow effect */
+            box-shadow: 6px 6px 0px var(--burnt-sienna); 
+        }
+
+        .side h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--burnt-sienna);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--burnt-sienna);
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom: 2px solid var(--olive);
+        }
+
+        /* 04. The Bar (Footer) */
+        footer {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--burnt-sienna);
+            color: var(--parchment);
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            color: var(--parchment);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--olive);
+            color: var(--parchment);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Shrikhand', cursive;
+            border-radius: 50px;
+            margin-top: 20px;
+            box-shadow: 3px 3px 0px #1a220e;
+        }
+
+        .btn:hover {
+            background-color: var(--parchment);
+            color: var(--olive);
+            border-bottom: none;
+        }
+
+        /* Responsive design for mobile phones */
+        @media (max-width: 768px) {
+            .archive {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Alien Moon</h1>
+        <p>Sixties sausje, seventies soul.</p>
+    </header>
+
+    <div class="container">
+        <section class="the-soul">
+            <h2>The Heart of the Moon</h2>
+            <p>We don’t play these songs because we have to; we play them because we can’t imagine not hearing them.</p>
+            <p>Based in Amsterdam, Alien Moon is a project born out of a simple love for the 'roerige jaren'—that specific, electric energy of the 1960s and 70s. For us, it’s about the crackle of a tube amp, the way a harmony sits just right, and the stories found in those old grooves.</p>
+            <p>Take a look around, listen to a few tracks, and if you’re feeling the groove, come say hi at the next gig.</p>
+        </section>
+
+        <section class="archive">
+            <div class="side">
+                <h3>Side A: The Archive</h3>
+                <p><em>Originals with a vintage twist. (SoundCloud)</em></p>
+                <ul>
+                    <li><a href="#">▶ Moonlight Groove</a></li>
+                    <li><a href="#">▶ Amsterdam Sun</a></li>
+                    <li><a href="#">▶ The Sixties Sausje</a></li>
+                </ul>
+            </div>
+            
+            <div class="side">
+                <h3>Side B: The Stage</h3>
+                <p><em>Live moments from Amsterdam. (YouTube)</em></p>
+                <ul>
+                    <li><a href="#">▶ Live at Fando Now</a></li>
+                    <li><a href="#">▶ The Beatles Cover Medley</a></li>
+                    <li><a href="#">▶ Hendrix Vibes (Acoustic)</a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2>Bring the Moon to Your Room</h2>
+        <p>Want to hear some 60s soul at your place? We’ll bring the moon, you provide the atmosphere.</p>
+        <a href="mailto:hello@alienmoon.nl" class="btn">Drop Us a Line</a>
+        <p style="margin-top: 60px; font-size: 0.9rem; opacity: 0.8;">Currently spinning: Fleetwood Mac - Rumours</p>
+    </footer>
+
+</body>
+</html>
