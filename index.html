@@ -270,25 +270,13 @@
   .venue-cell { color: var(--text); }
   .city-cell { color: var(--muted); }
 
-  .ticket-btn {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 7px 14px;
-    background: transparent;
-    border: 1px solid var(--accent3);
-    color: var(--accent3);
-    cursor: pointer;
-    transition: all 0.2s;
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .ticket-btn:hover {
-    background: var(--accent3);
-    color: #fff;
-    box-shadow: 0 0 20px rgba(255,60,110,0.4);
+  .event-poster {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    border: 1px solid rgba(123, 47, 255, 0.3);
+    box-shadow: 0 0 40px rgba(123, 47, 255, 0.15);
+    margin-bottom: 52px;
   }
 
   /* Mailing list */
@@ -453,7 +441,6 @@
         <th>DATE</th>
         <th>VENUE</th>
         <th>CITY</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -461,10 +448,10 @@
         <td class="date-cell">20 MAR 2026 &middot; 19:30</td>
         <td class="venue-cell">Einde Van De Wereld<br><span style="font-size:11px;color:var(--muted);font-weight:normal">Javakade 61 &mdash; as Crazy Cow (Neil Young Tribute)</span></td>
         <td class="city-cell">Amsterdam</td>
-        <td><a href="#" class="ticket-btn">Tickets</a></td>
       </tr>
     </tbody>
   </table>
+  <img src="assets/20march.jpg" alt="20 March 2026 Event Poster" class="event-poster">
 
   <!-- About -->
   <div class="section-title">ABOUT</div>
