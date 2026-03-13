@@ -7,6 +7,14 @@
       "address": "Javakade 61",
       "city": "Amsterdam",
       "poster": "../assets/20march.jpg"
+    },
+        {
+      "date": "16 MAY 2026",
+      "time": "21:05",
+      "venue": "INT Neil Young Festival NL",
+      "address": "Best Western Hotel, Aduard",
+      "city": "Groningen",
+      "poster": "../assets/16may.jpg"
     }
   ],
   "about": "Crazy Cow is a Neil Young tribute band from Amsterdam, born out of <em>Alien Moon</em> — a group active since 2010. After years of performing classic rock covers spanning the 1960s–80s, the band rebranded at the end of 2024 to focus exclusively on the music of Neil Young.<br><br>Expect raw guitars, heartfelt harmonies, and the timeless spirit of Young's vast catalogue — from <em>Harvest Moon</em> to <em>Rockin' in the Free World</em>. Every show is a journey through one of rock's most restless and enduring catalogues.",
