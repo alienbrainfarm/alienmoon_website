@@ -394,7 +394,7 @@
     </thead>
     <tbody id="events-tbody"></tbody>
   </table>
-  <img id="event-poster" alt="Event Poster" class="event-poster" style="display:none">
+  <div id="event-posters"></div>
 
   <!-- About -->
   <div class="section-title">ABOUT</div>
@@ -454,13 +454,16 @@
       </tr>
     `).join('');
 
-    // poster
-    const posterEvent = data.events.find(e => e.poster);
-    if (posterEvent) {
-      const img = document.getElementById('event-poster');
-      img.src = posterEvent.poster;
-      img.style.display = 'block';
-    }
+    // posters
+    const postersContainer = document.getElementById('event-posters');
+    postersContainer.innerHTML = '';
+    data.events.filter(e => e.poster).forEach(e => {
+      const img = document.createElement('img');
+      img.src = e.poster;
+      img.alt = 'Event Poster';
+      img.className = 'event-poster';
+      postersContainer.appendChild(img);
+    });
 
     // about
     document.getElementById('about-text').innerHTML = data.about;
