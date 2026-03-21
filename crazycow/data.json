@@ -25,7 +25,9 @@
     { "name": "Arnoud van Hall", "role": "Drums · Vocals" },
     { "name": "Karin van der Wilt", "role": "Guitar · Tambourine · Vocals" }
   ],
-  "videos": [],
+  "videos": [
+    { "url": "https://youtu.be/8jadTq6zphY", "caption": "Love and Only Love" }
+  ],
   "photos": [
     { "src": "../photos/crazycow1.jpg", "caption": "Live at Einde Van De Wereld" },
     { "src": "../photos/CrazyCowLogo.JPG", "caption": "Crazy Cow" }
